@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Deneme Güncelleme</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar Section -->
+      <aside>
+        <div class="toggle">
+          <div class="logo">
+            <img src="/img/tamdeger.png" />
+            <h2>Tam<span class="danger">Değer</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp"> close </span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="/dashboard">
+            <span class="material-icons-sharp"> dashboard </span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="/assignment">
+            <span class="material-icons-sharp">assignment</span>
+            <h3>Denemeler</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp"> logout </span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+      <!-- End of Sidebar Section -->
+
+      <main id="main-content">
+        <h1>Deneme Güncelleme</h1>
+        <section class="adminjs_Box">
+          <section class="adminjs_ActionHeader">
+            <section class="adminjs_Box">
+              <section class="adminjs_Breadcrumbs">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/assignment">Denemeler</a>
+                <a href="#">Deneme Güncelleme</a>
+              </section>
+            </section>
+          </section>
+
+          <section class="adminjs_Box">
+            <form id="assignment-edit-form" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="assignment-baslik">Başlık:</label>
+                <input
+                  type="text"
+                  id="assignment-baslik"
+                  name="title"
+                  value="<%= assignment.title %>"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="assignment-aciklama">Açıklama:</label>
+                <textarea id="assignment-aciklama" name="description" required>
+<%= assignment.description %></textarea
+                >
+              </div>
+              <div class="form-group">
+                <label for="assignment-fotograf">Fotoğraf:</label>
+                <input
+                  type="file"
+                  id="assignment-fotograf"
+                  name="image"
+                  accept="image/*"
+                />
+                <img
+                  src="<%= assignment.image %>"
+                  alt="Current Image"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <button type="submit">Güncelle</button>
+            </form>
+          </section>
+        </section>
+      </main>
+
+      <!-- Right Section -->
+      <div class="right-section">
+        <div class="nav">
+          <button id="menu-btn">
+            <span class="material-icons-sharp"> menu </span>
+          </button>
+          <div class="dark-mode">
+            <span class="material-icons-sharp active"> light_mode </span>
+            <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Reza</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img src="/images/profile-1.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="/js/editAssignment.js"></script>
+    </div>
+  </body>
+</html>

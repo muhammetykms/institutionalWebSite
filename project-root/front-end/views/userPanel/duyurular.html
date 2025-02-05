@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Tamdeger Duyurular</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-scholar.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- ***** Header Area Start ***** -->
+    <div id="header-placeholder"></div>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="main-banner" id="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="owl-carousel owl-banner">
+              <div class="item item-1">
+                <div class="header-text">
+                  <span class="category">Kurs</span>
+                </div>
+              </div>
+              <div class="item item-2">
+                <div class="header-text">
+                  <span class="category">Etüt Odalarımız</span>
+                </div>
+              </div>
+
+              <div class="item item-3">
+                <div class="header-text">
+                  <span class="category">Sınıflarımız</span>
+                </div>
+              </div>
+
+              <div class="item item-4">
+                <div class="header-text">
+                  <span class="category">Sınıflarımız</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="duyurular">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading-duyuru">
+            <h6>Duyurular</h6>
+          </div>
+          <div class="accordion" id="duyurularAccordion">
+            <!-- Dinamik olarak duyurular buraya eklenecek -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ***** Footer Start ***** -->
+    <div id="footer-placeholder"></div>
+    <!-- ***** Footer End ***** -->
+
+
+    <!-- JS Dosyalarını ekleme -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- Header ve Footer'i Dinamik Olarak Yükleme -->
+    <script src="assets/js/load-content.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          const response = await fetch("/announcements");
+          const announcements = await response.json();
+
+          const accordionContainer =
+            document.getElementById("duyurularAccordion");
+          accordionContainer.innerHTML = "";
+
+          announcements.forEach((announcement, index) => {
+            const isActive = index === 0 ? "show" : ""; // İlk duyuruyu açık göstermek için
+            const collapseId = `duyuruCollapse${index}`;
+            const headingId = `duyuruHeading${index}`;
+
+            const announcementHtml = `
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="${headingId}">
+                  <button
+                    class="accordion-button ${isActive ? "" : "collapsed"}"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#${collapseId}"
+                    aria-expanded="${isActive ? "true" : "false"}"
+                    aria-controls="${collapseId}"
+                  >
+                    ${announcement.title}
+                  </button>
+                </h2>
+                <div
+                  id="${collapseId}"
+                  class="accordion-collapse collapse ${isActive}"
+                  aria-labelledby="${headingId}"
+                  data-bs-parent="#duyurularAccordion"
+                >
+                  <div class="accordion-body">
+                    ${announcement.description}
+                    ${
+                      announcement.link
+                        ? `<br/><a href="${announcement.link}" target="_blank">Tıklayınız</a>`
+                        : ""
+                    }
+                  </div>
+                </div>
+              </div>
+            `;
+
+            accordionContainer.innerHTML += announcementHtml;
+          });
+        } catch (error) {
+          console.error("Duyurular yüklenirken hata oluştu:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

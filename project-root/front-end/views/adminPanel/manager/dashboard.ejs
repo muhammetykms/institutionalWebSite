@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Tam Değer Admin Paneli</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Sidebar Section -->
+      <aside>
+        <div class="toggle">
+          <div class="logo">
+            <img src="img/tamdeger.png" />
+            <h2>Tam<span class="danger">Değer</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp"> close </span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="/dashboard">
+            <span class="material-icons-sharp"> dashboard </span>
+            <h3>Anasayfa</h3>
+          </a>
+          <a href="/accountment" id="duyurular-btn">
+            <span class="material-icons-sharp"> announcement </span>
+            <h3>Duyurular</h3>
+          </a>
+          <a href="/assignment">
+            <span class="material-icons-sharp">assignment</span>
+            <h3>Denemeler</h3>
+          </a>
+          <!-- Yeni Eklenen Buton: Etkinlikler -->
+          <a href="/event">
+            <span class="material-icons-sharp">event</span>
+            <h3>Etkinlikler</h3>
+          </a>
+          <a href="/logout">
+            <span class="material-icons-sharp"> logout </span>
+            <h3>Çıkış Yap</h3>
+          </a>
+        </div>
+      </aside>
+      <!-- End of Sidebar Section -->
+
+      <!-- Main Content -->
+      <main id="main-content">
+        <h1>Analytics</h1>
+        <!-- Analyses -->
+        <div class="analyse">
+          <div class="sales">
+            <div class="status">
+              <div class="info">
+                <h3>Total Sales</h3>
+                <h1>$65,024</h1>
+              </div>
+              <div class="progresss">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="percentage">
+                  <p>+81%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="visits">
+            <div class="status">
+              <div class="info">
+                <h3>Site Visit</h3>
+                <h1>24,981</h1>
+              </div>
+              <div class="progresss">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="percentage">
+                  <p>-48%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="searches">
+            <div class="status">
+              <div class="info">
+                <h3>Searches</h3>
+                <h1>14,147</h1>
+              </div>
+              <div class="progresss">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="percentage">
+                  <p>+21%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Analyses -->
+      </main>
+      <!-- End of Main Content -->
+
+      <!-- Right Section -->
+      <div class="right-section">
+        <div class="nav">
+          <button id="menu-btn">
+            <span class="material-icons-sharp"> menu </span>
+          </button>
+          <div class="dark-mode">
+            <span class="material-icons-sharp active"> light_mode </span>
+            <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+
+          <div class="profile">
+            <div class="info">
+              <p>Tam <b>Değer</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+          </div>
+        </div>
+        <!-- End of Nav -->
+
+        <div class="user-profile">
+          <div class="logo">
+            <img src="images/logo.png" />
+            <h2>Muhammet Ramazan Yıkmış</h2>
+            <p>Mobile - Web Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const sideMenu = document.querySelector("aside");
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const darkMode = document.querySelector(".dark-mode");
+
+      menuBtn.addEventListener("click", () => {
+        sideMenu.classList.add("show");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        sideMenu.classList.remove("show");
+      });
+
+      darkMode.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode-variables");
+        darkMode.querySelector("span:nth-child(1)").classList.toggle("active");
+        darkMode.querySelector("span:nth-child(2)").classList.toggle("active");
+      });
+
+      document.querySelectorAll(".sidebar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          sideMenu.classList.remove("show");
+        });
+      });
+    </script>
+    <script src="/js/tokenCheck.js"></script>
+  </body>
+</html>

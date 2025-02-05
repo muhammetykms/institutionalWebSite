@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Tam Değer Admin Paneli</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Sidebar Section -->
+      <aside>
+        <div class="toggle">
+          <div class="logo">
+            <img src="img/tamdeger.png" />
+            <h2>Tam<span class="danger">Değer</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp"> close </span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="/dashboard">
+            <span class="material-icons-sharp"> dashboard </span>
+            <h3>Anasayfa</h3>
+          </a>
+          <a href="/accountment" id="duyurular-btn">
+            <span class="material-icons-sharp"> announcement </span>
+            <h3>Duyurular</h3>
+          </a>
+          <a href="/assignment">
+            <span class="material-icons-sharp">assignment</span>
+            <h3>Denemeler</h3>
+          </a>
+          <!-- Yeni Eklenen Buton: Etkinlikler -->
+          <a href="/event">
+            <span class="material-icons-sharp">event</span>
+            <h3>Etkinlikler</h3>
+          </a>
+          <a href="/logout">
+            <span class="material-icons-sharp"> logout </span>
+            <h3>Çıkış Yap</h3>
+          </a>
+        </div>
+      </aside>
+      <!-- End of Sidebar Section -->
+
+      <!-- Main Content -->
+      <main id="main-content">
+        <h1>Duyurular</h1>
+        <!-- Analyses -->
+        <section class="adminjs_Box">
+          <section class="adminjs_ActionHeader">
+            <section class="adminjs_Box">
+              <section class="adminjs_Breadcrumbs">
+                <a href="/dashboard">Dashboard</a>
+                <a href="#">Duyurular</a>
+              </section>
+            </section>
+            <section class="adminjs_Box">
+              <h2 class="adminjs_Header adminjs_H2">Duyurular</h2>
+            </section>
+            <section class="adminjs_Box">
+              <a
+                href="#"
+                id="create-announcement"
+                class="adminjs_ButtonGroupItem adminjs_Button"
+                color="primary"
+              >
+                <span class="adminjs_Icon" color="inherit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="inherit"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+                Yeni Duyuru Ekle
+              </a>
+            </section>
+          </section>
+
+          <section data-css="Admin-list-table-wrapper" class="adminjs_Box">
+            <table data-css="Admin-table" class="adminjs_Table">
+              <thead data-css="Admin-table-head" class="adminjs_TableHead">
+                <tr data-css="Admin-table-head-row" class="adminjs_TableRow">
+                  <td class="adminjs_TableCell">Başlık</td>
+                  <td class="adminjs_TableCell">Açıklama</td>
+                  <td class="adminjs_TableCell">Tarih</td>
+                  <td class="adminjs_TableCell">Link</td>
+                  <td class="adminjs_TableCell" style="width: 80px"></td>
+                </tr>
+              </thead>
+              <tbody class="adminjs_TableBody">
+                <!-- AJAX ile doldurulacak -->
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <!-- End of Analyses -->
+      </main>
+      <!-- End of Main Content -->
+
+      <!-- Right Section -->
+      <div class="right-section">
+        <div class="nav">
+          <button id="menu-btn">
+            <span class="material-icons-sharp"> menu </span>
+          </button>
+          <div class="dark-mode">
+            <span class="material-icons-sharp active"> light_mode </span>
+            <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+
+          <div class="profile">
+            <div class="info">
+              <p>Tam <b>Değer</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+          </div>
+        </div>
+        <!-- End of Nav -->
+      </div>
+    </div>
+
+    <script src="/js/announcement.js"></script>
+    <script src="/js/tokenCheck.js"></script>
+  </body>
+</html>
